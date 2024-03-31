@@ -27,8 +27,8 @@ igpu = 1;
 gpuDevice(1)
 
 %%%% Optimization parameters 
-kLyap=1:2; % disturbance k_x range
-NLyap=[12;12]; % N disturbances per k_x (these include streamwise translations) 
+kLyap=1:3; % disturbance k_x range
+NLyap=[10;10;10]; % N disturbances per k_x (these include streamwise translations) 
 
 %Iteration settigns
 cstep=10; % number of full iterations
@@ -56,7 +56,7 @@ start_filen=['state_Re',num2str(Re),'_',num2str(Tinit(1),'%04.2f'),'.mat']
 %file_series=['mean_states_1500_N1.mat']
 %tt = 47
 fmt = '%04.2f';
-cont_old=1; % initializes disturbances from previous fields, 
+cont_old=0; % initializes disturbances from previous fields, 
             % if 0 starts with random fields 
 noise_file='noise_structure_diffusion_eqall_617272.mat';
             %Noi            
