@@ -28,8 +28,8 @@ igpu = 1;
 gpuDevice(1)
 
 %%%% Optimization parameters 
-kLyap=1:2; % disturbance k_x range
-NLyap=[12;12]; % N disturbances per k_x (these include streamwise translations) 
+kLyap=1:3; % disturbance k_x range
+NLyap=[10;10]; % N disturbances per k_x (these include streamwise translations) 
 h=10; %dt speed factor
 
 Re=1500;%Re=dum(2);
@@ -56,7 +56,7 @@ cont_old=0; % initializes disturbances from previous fields,
 noise_file='noise_structure_diffusion_eqall_617272.mat';
             %Noi            
 %if cont_old == 1 % continues from old disturbance file
-start_opt=['opt_TT',num2str(Tfopt),'_T',num2str(Tinit(1),fmt),'__k12.mat']
+start_opt=['opt_TT',num2str(Tfopt),'_T',num2str(Tinit(1),fmt),'_k123.mat']
 %end
 
 % Fundamental wavenumbers
@@ -286,7 +286,7 @@ end
 plot_mode(37,uL,vL,wL,gL,3,1,umean1,vmean1,wmean1)
     
     
-write_to_disk_ensemble_opti(gather(uL),gather(vL),gather(wL),gather(gL),Tfopt,kLyap,NLyap,gather(gr),[field_path,'opt_TT',num2str(Tfopt),'_T',num2str(Tinit(1),fmt),'_k12.mat'])
+write_to_disk_ensemble_opti(gather(uL),gather(vL),gather(wL),gather(gL),Tfopt,kLyap,NLyap,gather(gr),[field_path,'opt_TT',num2str(Tfopt),'_T',num2str(Tinit(1),fmt),'_k123.mat'])
     
 %          start_mode=[field_path,'modes_N',num2str(Nens),'_T',num2str(TT(t1)),'_k123.mat']
 % 
