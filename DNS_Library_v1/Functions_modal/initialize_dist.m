@@ -46,7 +46,7 @@ display('Replacing with previous disturbances')
   for Lk=1:min(KL,length(kLyap))
     Lkiter=Lkiter+1;
       %
-     for Ln=1:min(NL,length(NLyap(Lkiter)))
+     for Ln=1:min(NL(Lkiter),NLyap(Lkiter))
 
        uL(:,:,:,Ln,Lk)=u1(:,:,:,Ln,Lk);
        vL(:,:,:,Ln,Lk)=v1(:,:,:,Ln,Lk);
