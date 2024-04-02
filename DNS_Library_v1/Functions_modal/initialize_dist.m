@@ -37,7 +37,7 @@ if cont_old==1
 display('Replacing with previous disturbances')    
     
 [vi,gi,UP,WP,grold,NL,KL,rtold]=read_from_disk_compact_ensemble_opti([field_path,start_mode]);
-[u1,v1,w1,g1]=make_uw_ens_Lyap(vi,gi,UP,WP,0*b1,0*b2,NL,KL);
+[u1,v1,w1,g1]=make_uw_ens_Lyap(vi,gi,UP,WP,0*b1,0*b2,NL,length(KL));
 
 %% %init if 1
   Lkiter=0;
