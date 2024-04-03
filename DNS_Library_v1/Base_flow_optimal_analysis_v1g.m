@@ -29,7 +29,7 @@ gpuDevice(1)
 
 %%%% Optimization parameters 
 kLyap=1:3; % disturbance k_x range
-NLyap=[10;10]; % N disturbances per k_x (these include streamwise translations) 
+NLyap=[10;10;10]; % N disturbances per k_x (these include streamwise translations) 
 h=10; %dt speed factor
 
 Re=1500;%Re=dum(2);
