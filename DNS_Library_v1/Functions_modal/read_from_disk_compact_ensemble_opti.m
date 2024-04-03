@@ -1,4 +1,4 @@
-function [vi,gi,UP,WP,gr,NLyap,KLyap,runtime]=read_from_disk_compact_ensemble_opti(filename)
+function [vi,gi,UP,WP,gr,NLyap,kLyap,runtime]=read_from_disk_compact_ensemble_opti(filename)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
 
