@@ -52,9 +52,9 @@ global S_mf S_mp Sol_m b1 b2
 % global kLyap NLyap kkmm llmm DYkronm
 global a b
 
-%Function paths or add main folder ('../') and subfolders to path
-addpath('../Functions/')
-addpath('../Functions_ensemble/')
+%Function paths or init_path in main folder
+%addpath('../Functions/')
+%addpath('../Functions_ensemble/')
 %addpath('Functions_modal/')
 
 solv=1; % 1 to calculate and save solver matrices, 0 to load stored 
