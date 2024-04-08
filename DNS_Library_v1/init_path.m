@@ -1,4 +1,6 @@
 init_structure = 1; %% Generates the noise basis for a 61x72x72 grid, set to 0 after 1st run
+                    
+%% add current folder and subfolders 
 addpath(genpath('../'))
 
 if init_structure
