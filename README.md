@@ -1,4 +1,4 @@
-DNS ENSEMBLE LIBRARY REPOSITORY
+# dns-ensemble-lib
 
 This repository provides a complete set of functions for the simulation of single DNSs ( Couette and Poiseuille) 
 and ensemble DNSs of the same flow. Additional diagnostic scripts that perform the optimal and modal stability 
