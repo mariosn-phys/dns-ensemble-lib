@@ -1,26 +1,64 @@
 # dns-ensemble-lib
 
-This repository provides a complete set of functions for the simulation of single DNSs ( Couette and Poiseuille) 
-and ensemble DNSs of the same flow. Additional diagnostic scripts that perform the optimal and modal stability 
-analysis on streamwise-mean base flows are also included. A stochastic forcing is now availabe to assist with 
-the deviation of flow realizations and the transition experiments.
+A collection of scripts that perform Direct Numerical Simulations of single or ensemble Couette and Poiseuille flow turbulence 
+in plane parallel,streamwise and spanwise periodic 3D domains. The DNS ensemble time-stepping routines have been vectorized 
+to run simultaneously, reducing the temporal cost of each ensemble member. Executable scripts are located in the 'DNS_Library_v1/' folder. Additional diagnostic scripts that perform the optimal and modal stability analysis on streamwise-mean base flows are also included.
 
-The DNS settings are identical to the single flow case (refer to dns-matlab-gpu). Ensemble parameters have been 
-added to dictate the number of ensemble members. 
+An initialization script 'NL3D_Couette_gpu_init_ensemble.m' is provided, which advances multiple copies of a single initial 
+state for a short time interval with a stochastic forcing term and stores the resulting states. This may also be useful
+to perform transition experiments from a laminar base flow. 
 
-ENSEMBLE 
-NL3D_Couette_gpu_ensemble
-NL3D_Couette_gpu_init_ensemble
+The main script 'NL3D_Couette_gpu_ensemble.m' continues simulation of these states for a specified number of ensemble members. 
+Stochastic forcing can also be enabled in this script. 
 
-OPTIONS
+To construct a Noise Structure for the appropriate problem resolution we utilize the script 'Functions_stochastic/ NoiseStructure2_cheb.m'.
 
-PARAMETERS
 
-STABILITY SCRIPTS 
+The DNS settings are identical to the single flow case (refer to # dns-matlab-gpu). 
+
+Additional options for the ensemble simulations are listed below
+
+Ensemble options
+------------
+start_filen | file name of single initial state,
+init_ens | initialize ensemble member save folders on field_path, 1 == on, 0 == off,
+init_file | start ensemble from single file on field_path, 1 == on, 0 == off,
+stoch | enables stochastic forcing, 1 == on, 0 == off,
+af | List of nonlinear term modulation for perturbation-perturbation interactions in the perturbation equation, 1 for DNS,
+
+Ensemble parameters
+------------
+Fnn | List of simulated states from the field_path ensemble folder
+Fn | Ensemble members / Depends on Fnn
+sdt | Gudunov step for stochastic terms / square root of dt
+
+(When solver matrices are loaded these parameters have to be the same with the ones used to precalculate them in order for the DNS to work correctly!)
+ksolv | Number of streamwise harmonics solved after dealiasing  
+msolv | Number of spanwise harmonics solved after dealiasing  
+
+Stability scripts
+------------
 Base_flow_modal_analysis_v1g
 Base_flow_optimal_analysis_v1g
 
-OPTIONS
+Stability options
+------------
+field_path | set path of DNS save state folder,
+Tfopt | Target time for optimization,
+ty | file type 'file' extracts mean flow from state or 'tseries' selects from time-series of mean flows,
+init_file | if ty = 'file' the file name of the base flow containing state,
+file_series | if ty = 'tseries' the file name of a series of mean flows,
+cont_old | restart from previously obtained stability disturbances,
+start_opt | file name of the previous stability disturbances, 
+cstep | iterations of stability loop
+nstep | timesteps before normalization
 
-PARAMETERS
+Stability parameters
+------------
+kLyap | range of streamwise harmonic dependence of perturbations,
+NLyap | Number of traced modes for each wavenumber,
+h | Time-step acceleration factor,
+ 
+
+
 
