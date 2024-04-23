@@ -1,6 +1,6 @@
 function [ue,ve,we,ge] = input_ensemble(folder,stname,Fnn)
-%UNTITLED7 Summary of this function goes here
-%   Detailed explanation goes here
+
+% Compact ensemble state load function 
 
 global b1 b2
 
