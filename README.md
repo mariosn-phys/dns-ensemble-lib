@@ -50,14 +50,14 @@ init_file | if ty = 'file' the file name of the base flow containing state,
 file_series | if ty = 'tseries' the file name of a series of mean flows,
 cont_old | restart from previously obtained stability disturbances,
 start_opt | file name of the previous stability disturbances, 
-cstep | iterations of stability loop
-nstep | timesteps before normalization
+cstep | iterations of stability loop,
+nstep | completed timesteps before normalization
 
 Stability parameters
 ------------
 kLyap | range of streamwise harmonic dependence of perturbations,
 NLyap | Number of traced modes for each wavenumber,
-h | Time-step acceleration factor,
+h | Time-step acceleration factor
  
 
 
