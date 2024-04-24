@@ -74,7 +74,7 @@ init_ens=1;
 init_file=1;
 % single state
 
-stoch=0; 
+stoch=1; 
 % Stochastic forcing, 0 off 1 on.
 % stochastic parameters for excitation   
 % load('noise_structure_diffusion_eqall_313030.mat','FF')
