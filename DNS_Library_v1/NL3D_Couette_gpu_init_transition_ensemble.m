@@ -79,7 +79,7 @@ stoch=1;
 % load('noise_structure_diffusion_eqall_313030.mat','FF')
 % %load('noise_structure_dfreedom_realeqall_313030.mat','FF')
 if stoch
-    en2=3*0.5*10^-6;  % Noise energy level  
+    en2=4*0.5*10^-6;  % Noise energy level  
     %en2=0.3/16*70*10^-6;  %%% 1: 32, 2: 8
 end
 
