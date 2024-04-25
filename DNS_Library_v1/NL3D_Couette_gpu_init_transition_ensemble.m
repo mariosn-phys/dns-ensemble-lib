@@ -79,7 +79,8 @@ stoch=1;
 % load('noise_structure_diffusion_eqall_313030.mat','FF')
 % %load('noise_structure_dfreedom_realeqall_313030.mat','FF')
 if stoch
-en2=8*70*10^-6;  %%% 1: 32, 2: 8
+    en2=3*0.5*10^-6;  % Noise energy level  
+    %en2=0.3/16*70*10^-6;  %%% 1: 32, 2: 8
 end
 
 % F=2*N;
@@ -96,21 +97,21 @@ end
 %%% -------------------------------------
 
 %%% !!!!!!!!!!!!
-field_path = 'Data/Re1500_n61_transition_ens/'  %% save and restart file path
+field_path = 'Data/Re1000_n61_transition_ens/'  %% save and restart file path
 diag_file  = 'diagnostics1'; %% save elementary diagnostics
 %%% !!!!!!!!!!!!
 
 
-Re=1500; % Reynolds number 
+Re=1000; % Reynolds number 
 
 % Poiseuille (test) 'p' or Couette 'c'
 modf='c';
 it0=2; % First advance step
-dt=0.0125; % Plot and save intervals assume that 1/dt = integer. Some compatible 
+dt=0.02; % Plot and save intervals assume that 1/dt = integer. Some compatible 
          % choices for dt=[0.025,0.02,0.0125,0.01,0.008,0.00625,0.005] 
 sdt=sqrt(dt); % Gudunov noise normalized step         
 Ti=0; % Initial Time (should match time on restart file name)
-Tf=1000; % Final Time
+Tf=2000; % Final Time
 T=Ti:dt:Tf; 
 NT=length(T);
 g=dt/(2*Re); % CN coefficient
@@ -232,7 +233,7 @@ load('noise_structure_diffusion_eqall_617272.mat','FF')
 F=2*N;
 kxband=1:2;Nk=length(kxband);
 kzband=1:MZ/3+1;Nm=length([kzband MZ-flip(kzband(2:end))+2]);
-FF=FF(:,1:F,:,:);  FF(:,:,:,1)=0*FF(:,:,:,1); 
+FF=en2*FF(:,1:F,:,:);  FF(:,:,:,1)=0*FF(:,:,:,1); 
 
 
 
@@ -330,6 +331,13 @@ end
  if stoch
  %for it=1:10
     
+[un,vn,wn,~]=noise_short_kron_en_kx(FFkron,F,en2,kxband,kzband,Fn,0*u0);
+Ei=EnerFn(un,vn,wn);
+
+% Rescale noise
+ffsc=(en2/mean(Ei))^(1/2);
+FFkron=ffsc*FFkron;
+ 
 %   [u0,v0,w0,g0]=noise_kron_en_kx(FFkron,F,en2,Fn);
  [un,vn,wn,gn]=noise_short_kron_en_kx(FFkron,F,en2,kxband,kzband,Fn,0*u0);
     
