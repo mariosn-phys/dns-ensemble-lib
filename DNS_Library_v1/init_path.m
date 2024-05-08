@@ -8,5 +8,5 @@ addpath(path_list)
 if init_structure
 R=1000;a=2/2;b=2/1;
 N=61;NX=72;MZ=72;
-NoiseStructure2_cheb(R,N,NX,MZ,a,b)
+NoiseStructure2_cheb(R,N,NX,MZ,a,b,1);
 end
