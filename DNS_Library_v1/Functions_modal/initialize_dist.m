@@ -1,9 +1,9 @@
-function [uLn,vLn,wLn,gLn,Lkn,grold,rtold]=initialize_dist(field_path,start_mode,noise_file,cont_old);
+function [uLn,vLn,wLn,gLn,Lkn,grold,rtold]=initialize_dist(field_path,start_mode,FF,cont_old);
 
 global b1 b2 kLyap NLyap NX MZ N
 
 display('Generating random initial fields')
-load(noise_file,'FF')
+%load(noise_file,'FF')
 %load('noise_structure_dfreedom_eqall_5372120.mat','FF')
     
 rtold=0;
