@@ -100,7 +100,7 @@ end
 
 %Test Energy 
 
-save('noise_structure_diffusion_eqall_617272.mat','FF','MTC')
+save(['noise_structure_diffusion_eqall_',num2str(N),num2str(NX),num2str(MZ),'.mat'],'FF','MTC')
 
 %save('noise_structure_dfreedom_lambdam1_km8_5_434848_DNS_correct.mat','FF')
 
