@@ -1,4 +1,4 @@
-function NoiseStructure2_cheb(R,N,NX,MZ,a,b)
+function FF=NoiseStructure2_cheb(R,N,NX,MZ,a,b,sav)
 
 %Noise Structures / Diffusion Modes
 
@@ -100,7 +100,9 @@ end
 
 %Test Energy 
 
+if sav==1
 save(['noise_structure_diffusion_eqall_',num2str(N),num2str(NX),num2str(MZ),'.mat'],'FF','MTC')
+end
 
 %save('noise_structure_dfreedom_lambdam1_km8_5_434848_DNS_correct.mat','FF')
 
