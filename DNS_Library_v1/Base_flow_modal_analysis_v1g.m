@@ -188,9 +188,10 @@ end
 %----------Build Solvers End   
 
 %% Load disturbances
-    
-[uLn,vLn,wLn,gLn,Lkn,gmold,rtold]=initialize_dist(field_path,start_mode,noise_file,cont_old);
-[uLj,vLj,wLj,gLj,Lkj,gaold,rtold]=initialize_dist(field_path,start_adjoint,noise_file,cont_old);
+
+FF=NoiseStructure2_cheb(Re,N,NX,MZ,a,b,0);    
+[uLn,vLn,wLn,gLn,Lkn,gmold,rtold]=initialize_dist(field_path,start_mode,FF,cont_old);
+[uLj,vLj,wLj,gLj,Lkj,gaold,rtold]=initialize_dist(field_path,start_adjoint,FF,cont_old);
 
     if igpu == 1
     uLn = gpuArray(uLn);
