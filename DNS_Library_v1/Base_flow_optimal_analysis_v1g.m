@@ -53,6 +53,7 @@ start_filen=['state_Re',num2str(Re),'_',num2str(Tinit(1),'%04.2f'),'.mat']
 fmt = '%04.2f';
 cont_old=0; % initializes disturbances from previous fields, 
             % if 0 starts with random fields 
+%noise_file='noise_structure_diffusion_eqall_617272.mat';
             %Noi            
 %if cont_old == 1 % continues from old disturbance file
 start_opt=['opt_TT',num2str(Tfopt),'_T',num2str(Tinit(1),fmt),'_k123.mat']
