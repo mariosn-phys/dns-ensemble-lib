@@ -41,6 +41,8 @@ Stability scripts
 Base_flow_modal_analysis_v1g
 Base_flow_optimal_analysis_v1g
 
+Modal analysis of a (U,V,W) base flow with underlying symmetries requires considerable amounts of time to distinguish modes with comparable growth.
+
 Stability options
 ------------
 field_path | set path of DNS save state folder,
