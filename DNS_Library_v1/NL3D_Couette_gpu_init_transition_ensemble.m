@@ -225,7 +225,8 @@ P=[0:(MZ/2-1) 0 (1-MZ/2):(-1)];
 
 
 if stoch
-load('noise_structure_diffusion_eqall_617272.mat','FF')
+FF=NoiseStructure2_cheb(Re,N,NX,MZ,a,b,0)
+%load('noise_structure_diffusion_eqall_617272.mat','FF')
 %load('noise_structure_dfreedom_realeqall_313030.mat','FF')
 %load('noise_short_kron_structure_diffusion_eqall_313030.mat','FFkron')
 %load('noise_structure_diffusion_eqall_717272.mat','FF')
