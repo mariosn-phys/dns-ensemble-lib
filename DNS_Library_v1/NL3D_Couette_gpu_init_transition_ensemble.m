@@ -1,6 +1,6 @@
 
 %    Ensemble-Integration DNS Script of plane parallel flows (Couette/ Poiseuille) for MATLAB   
-%    Copyright (C) 2023 Marios-Andreas Nikolaidis
+%    Copyright (C) 2024 Marios-Andreas Nikolaidis
 %    Developed during the author's thesis at the University of Athens (NKUA)
 
 %    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 %    You should have received a copy of the GNU Affero General Public License
 %    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-% Base DNS code used in Nikolaidis & Ioannou (2022)
+% DNS derived from the code used in Nikolaidis & Ioannou (2022)
 % A pseudo-spectal Navier-Stokes solver for plane parallel Couette flow
 % in wall-normal velocity/ vorticity formulation (Kim,Moin,Moser 1987 - 
 % an example of a spectral mpi DNS has been developed by the Fluid Dynamics 
