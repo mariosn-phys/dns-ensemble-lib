@@ -60,7 +60,7 @@ global a b
 solv=1; % 1 to calculate and save solver matrices, 0 to load stored 
 %precalculated ones for the same parameters
 psolv=1; % 1 enables parallel pool for solver matrices, 0 serial mode
-npc=4; % number of parallel workers in pool for solvers, increases 
+npc=0; % number of parallel workers in pool for solvers, increases 
        %memory requirements during calculation
 
 af=permute(linspace(6.2,8,10),[1 3 4 2]); af=1; 
@@ -79,7 +79,7 @@ stoch=1;
 % load('noise_structure_diffusion_eqall_313030.mat','FF')
 % %load('noise_structure_dfreedom_realeqall_313030.mat','FF')
 if stoch
-    en2=4*0.5*10^-6;  % Noise energy level  
+    en2=35*0.5*10^-6;  % Noise energy level ~ 50 critical  
     %en2=0.3/16*70*10^-6;  %%% 1: 32, 2: 8
 end
 
@@ -145,7 +145,7 @@ end
 % Fundamental wavenumbers
 %Re3000 and Re3250
 a=2/2;
-b=2/1;
+b=2/1.2;
 
 %Re600 and Re2250
 %a=2/1.75;
