@@ -1,23 +1,13 @@
-clear all
+function NoiseStructure2_cheb(R,N,NX,MZ,a,b)
 
-R=1500;
-N=61;
-
-%METRIC noise
-%Dissipation Modes
-
-a=2/2;
-b=2/1.2;
-
-%a=2/1.75;%a=.5;
-%b=2/(1.2);%b=1;
+%Noise Structures / Diffusion Modes
 
 L=2;
 
 % increments of 12
 
-A=2*pi/a;NX=72;dx=A/NX;x=-dx+dx*(1:NX)';xE=[x;A]; 
-B=2*pi/b;MZ=72;dz=B/MZ;z=-dz+dz*(1:MZ)';zE=[z;B];
+A=2*pi/a;dx=A/NX;x=-dx+dx*(1:NX)';xE=[x;A]; 
+B=2*pi/b;dz=B/MZ;z=-dz+dz*(1:MZ)';zE=[z;B];
 
 %m=0;
 I=eye(N);
