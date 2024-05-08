@@ -160,7 +160,8 @@ end
   
 %% Load disturbances
 
-[uLn,vLn,wLn,gLn,Lkn,gmold,rtold]=initialize_dist(field_path,start_opt,noise_file,cont_old);
+FF=NoiseStructure2_cheb(Re,N,NX,MZ,a,b,0)
+[uLn,vLn,wLn,gLn,Lkn,gmold,rtold]=initialize_dist(field_path,start_opt,FF,cont_old);
 
     if igpu == 1
     uLn = gpuArray(uLn);
