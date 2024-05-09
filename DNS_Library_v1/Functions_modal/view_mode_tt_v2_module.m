@@ -1,4 +1,4 @@
-function [uLn,vLn,wLn,gLn,uLj,vLj,wLj,gLj,gr,grj] = view_mode_tt_v2_module(uLn,vLn,wLn,gLn,uLj,vLj,wLj,gLj,umn,vmn,wmn,gmn,NT,h,Lkn)
+function [uLn,vLn,wLn,gLn,uLj,vLj,wLj,gLj,gr,grj] = view_mode_tt_v2_module(uLn,vLn,wLn,gLn,uLj,vLj,wLj,gLj,umn,vmn,wmn,gmn,NT,h,Lkn,nn,kn)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -9,7 +9,7 @@ global kLyap NLyap N NX MZ dt L igpu
 %[uLj,vLj,wLj,gLj]=compact_Lyap(uLj,vLj,wLj,gLj);
 
 
-[un,vn,wn,gn] = view_Eigen_tt_module_kron_RK3_v2_k(uLn,vLn,wLn,gLn,umn,vmn,wmn,gmn,NT,h,Lkn(1:2:end));
+[un,vn,wn,gn] = view_Eigen_tt_module_kron_RK3_v2_k(uLn,vLn,wLn,gLn,umn,vmn,wmn,gmn,NT,h,Lkn(1:2:end),nn,kn);
 
 %[uj,vj,wj,gj] = Adjoi_tt_module_kron_RK3_v2_k(uLj,vLj,wLj,gLj,umean,vmean,wmean,gmean,NT,h,Lkn(1:2:end));
 

@@ -1,4 +1,4 @@
-function [uL,vL,wL,gL] = view_Eigen_tt_module_kron_RK3_v2_k(uLn,vLn,wLn,gLn,umn,vmn,wmn,gmn,NT,h,Lkn)
+function [uL,vL,wL,gL] = view_Eigen_tt_module_kron_RK3_v2_k(uLn,vLn,wLn,gLn,umn,vmn,wmn,gmn,NT,h,Lkn,nn,kn)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -96,9 +96,12 @@ for it=2:NT
         
         if rem(it,10)==0
         
-        [u1,v1,w1,g1]=decompact_Lyap_Fn(uL,vL,wL,gL,Lkn);
+        Lku=zeros(1,2*length(Lkn));
+        Lku(1:2:end)=Lkn;Lku(2:2:end)=Lkn;
+        
+        [u1,v1,w1,g1]=decompact_Lyap_Fn(uL,vL,wL,gL,Lku);
 
-        plot_mode(37,u1,v1,w1,g1,2,1,umn,vmn,wmn)
+        plot_mode(37,u1,v1,w1,g1,nn,kn,umn,vmn,wmn)
         drawnow
         end
         
