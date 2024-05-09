@@ -1,5 +1,6 @@
 
-%    Power method eigenanalysis of plane parallel flows (Couette/ Poiseuille) for MATLAB   
+%    Power method eigenanalysis of plane parallel flows (Couette/ Poiseuille) 
+%    for MATLAB   
 %    Copyright (C) 2024 Marios-Andreas Nikolaidis
 %    Developed during the author's thesis at the University of Athens (NKUA)
 
@@ -36,8 +37,8 @@ global a b z x
 global xx_yx yy_yx yy_yz zz_yz xx_xz zz_xz
 
 %load kaw_parameters.mat
-addpath('Functions/')
-addpath('Functions_modal/')
+%addpath('Functions/')
+%addpath('Functions_modal/')
 
 field_path='Data/Re1500_n61_alpha_ens/';%field_path='';
 
@@ -60,7 +61,7 @@ mod='c';
 it0=2;
 dt=0.0125;
 Tfopt=15;
-T=0:dt:Tfopt;
+T=0:h*dt:Tfopt;
 NT=length(T);
 g=dt/(2*Re);
 
@@ -79,8 +80,8 @@ cont_old=0; % initializes disturbances from previous fields,
 %noise_file='noise_structure_diffusion_eqall_617272.mat';
             %Noi            
 %if cont_old == 0 % continues from old disturbance file
-start_mode=['modes_T',num2str(Tinit(1),'%04.2f'),'_k12.mat']
-start_adjoint=['adjoi_T',num2str(Tinit(1),'%04.2f'),'_k12.mat']
+start_mode=['modes_T',num2str(Tinit(1),'%04.2f'),'_k123.mat']
+start_adjoint=['adjoi_T',num2str(Tinit(1),'%04.2f'),'_k123.mat']
 %end
 
 
@@ -160,28 +161,8 @@ P=[0:(MZ/2-1) 0 (1-MZ/2):(-1)];
     gamma=gm*ones(N+2,1);
 
    %%
-
-% %----------Build Solvers   
-% [ICvkron1,ICvDvkron1,ICgkron1,ICggkron1,~,~,~,~,S_mf(:,:,1),S_mp(:,:,1),Sol_m(:,:,1),kkm,llm]=solvers(g,1/2);
-% 
-% %       ICvkron1c=ICvkron1;
-% %       ICvDvkron1c=ICvDvkron1;
-% %       ICgkron1c=ICgkron1;
-% %       ICggkron1c=ICggkron1;
-% 
-% %       ICvkron1=gpuArray(ICvkron1);
-% %       ICvDvkron1=gpuArray(ICvDvkron1);
-% %       ICgkron1=gpuArray(ICgkron1);
-% %       ICggkron1=gpuArray(ICggkron1);
-% 
-% [ICvkron2,ICvDvkron2,ICgkron2,ICggkron2,~,~,~,~,S_mf(:,:,2),S_mp(:,:,2),Sol_m(:,:,2),~,~]=solvers(g,1);
-% 
-% %       ICvkron2c=ICvkron2;
-% %       ICvDvkron2c=ICvDvkron2;
-% %       ICgkron2c=ICgkron2;
-% %       ICggkron2c=ICggkron2;
     
-      %----------Build Solvers   
+%----------Build Solvers   
 [ICvCvRK1,ICvIDELvRK1,ICgRK1,ICgCgRK1,~,~,~,kkmm,llmm]=solvers_module(g,1/2*h);
 % 
 
@@ -304,7 +285,10 @@ end
     end
     toc
     
-%%
+    %% evolution of selected distrubance
+
+    view_mode_time_v2_k(uLn,vLn,wLn,gLn,umean1,vmean1,wmean1,gmean1,NT,h,Lkn(1:2:end),1,1);
+    %%
 
         for Lkk=1:length(kLyap)
         Lin = find( Lkn == kLyap(Lkk));
@@ -332,12 +316,12 @@ end
 % end
 % end
     
-plot_mode(37,uL,vL,wL,gL,2,1,umean1,vmean1,wmean1)
+plot_mode(37,uL,vL,wL,gL,1,1,umean1,vmean1,wmean1)
 
 rtime=rtold+h*cvstep*dt*(nstep-1);
 
-write_to_disk_ensemble_opti(gather(uL),gather(vL),gather(wL),gather(gL),rtime,kLyap,NLyap,gather(gr),[field_path,'modes_T',num2str(Tinit(1),fmt),'_k12.mat'])
-write_to_disk_ensemble_opti(gather(uJ),gather(vJ),gather(wJ),gather(gJ),rtime,kLyap,NLyap,gather(agr),[field_path,'adjoi_T',num2str(Tinit(1),fmt),'_k12.mat'])
+write_to_disk_ensemble_opti(gather(uL),gather(vL),gather(wL),gather(gL),rtime,kLyap,NLyap,gather(gr),[field_path,'modes_T',num2str(Tinit(1),fmt),'_k123.mat'])
+write_to_disk_ensemble_opti(gather(uJ),gather(vJ),gather(wJ),gather(gJ),rtime,kLyap,NLyap,gather(agr),[field_path,'adjoi_T',num2str(Tinit(1),fmt),'_k123.mat'])
 
 %start_mode=[field_path,'modesa150p0k12.',num2str(T(it),'%04.2f'),'.mat']
 % start_adjoint=[field_path,'adjoi.vw.k1.h5.',num2str(tt,'%04.2f'),'.mat']

@@ -1,5 +1,6 @@
 
-%    Power method optimal disturbance identification of plane parallel flows (Couette/ Poiseuille) for MATLAB   
+%    Power method optimal disturbance identification of plane parallel flows 
+%    (Couette/ Poiseuille) for MATLAB   
 %    Copyright (C) 2024 Marios-Andreas Nikolaidis
 %    Developed during the author's thesis at the University of Athens (NKUA)
 
@@ -48,7 +49,10 @@ gpuDevice(1)
 %%%% Optimization parameters 
 kLyap=1:3; % disturbance k_x range
 NLyap=[10;10;10]; % N disturbances per k_x (these include streamwise translations) 
-h=10; %dt speed factor
+
+%Iteration settigns
+cstep=40; % number of full iterations
+h=5; %dt speed factor
 
 Re=1500;%Re=dum(2);
 % Poiseuille or Couette 'p' or 'c'
@@ -151,7 +155,9 @@ P=[0:(MZ/2-1) 0 (1-MZ/2):(-1)];
   
     Uback=repmat(U1,[1,NX,MZ]);
     gamma=gm*ones(N+2,1);
-        
+   
+    %%
+
 %----------Build Solvers   
 [ICvCvRK1,ICvIDELvRK1,ICgRK1,ICgCgRK1,~,~,~,kkmm,llmm]=solvers_module(g,1/2*h);
 % 
@@ -233,7 +239,7 @@ end
     pause(.1)
      
 %% Iteration loop
-    cstep=40; % number of full iterations
+
 
     itc=0;   
 
@@ -273,8 +279,11 @@ end
     
     end
     toc
-    %%
 
+    %% evolution of selected disturbance
+    
+    view_mode_time_v2_k(uLn,vLn,wLn,gLn,umean1,vmean1,wmean1,gmean1,NT,h,Lkn(1:2:end),1,1);
+    %%
 
         for Lkk=1:length(kLyap)
         Lin = find( Lkn == kLyap(Lkk));
@@ -302,7 +311,7 @@ end
 % end
 
 
-plot_mode(37,uL,vL,wL,gL,3,1,umean1,vmean1,wmean1)
+plot_mode(37,uL,vL,wL,gL,1,1,umean1,vmean1,wmean1)
     
     
 write_to_disk_ensemble_opti(gather(uL),gather(vL),gather(wL),gather(gL),Tfopt,kLyap,NLyap,gather(gr),[field_path,'opt_TT',num2str(Tfopt),'_T',num2str(Tinit(1),fmt),'_k123.mat'])
