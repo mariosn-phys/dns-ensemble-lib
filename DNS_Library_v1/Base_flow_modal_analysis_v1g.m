@@ -54,9 +54,9 @@ kLyap=1:3; % disturbance k_x range
 NLyap=[10;10;10]; % N disturbances per k_x (these include streamwise translations) 
 
 %Iteration settigns
-cstep=10; % number of full iterations
+cstep=40; % number of full iterations
 nstep=101; % timesteps before normalization
-h=10; %dt speed factor
+h=5; %dt speed factor
 
 
 Re=1500; % Reynolds number
