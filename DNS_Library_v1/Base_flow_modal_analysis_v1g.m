@@ -59,7 +59,7 @@ nstep=101; % timesteps before normalization
 h=10; %dt speed factor
 
 
-Re=1500;%Re=dum(2);
+Re=1500; % Reynolds number
 % Poiseuille or Couette 'p' or 'c'
 mod='c';
 it0=2;
