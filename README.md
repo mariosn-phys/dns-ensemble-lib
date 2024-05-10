@@ -2,7 +2,8 @@
 
 A collection of scripts that perform Direct Numerical Simulations of single or ensemble Couette and Poiseuille flow turbulence 
 in plane parallel,streamwise and spanwise periodic 3D domains. The DNS ensemble time-stepping routines have been vectorized 
-to run simultaneously, reducing the temporal cost of each ensemble member. Executable scripts are located in the 'DNS_Library_v1/' folder. Additional diagnostic scripts that perform the optimal and modal stability analysis on streamwise-mean base flows are also included.
+to run simultaneously, reducing the temporal cost of each ensemble member. Executable scripts are located in the 'DNS_Library_v1/' folder.
+Additional diagnostic scripts that perform the optimal and modal stability analysis on streamwise-mean base flows are also included.
 
 An initialization script 'NL3D_Couette_gpu_init_ensemble.m' is provided, which advances multiple copies of a single initial 
 state for a short time interval with a stochastic forcing term and stores the resulting states. This may also be useful
