@@ -57,7 +57,7 @@ NLyap=[10;10;10]; % N disturbances per k_x (these include streamwise translation
 cstep=40; % number of full iterations
 h=5; %dt speed factor
 
-Re=1500;%Re=dum(2);
+Re=1500; % Reynolds number 
 % Poiseuille or Couette 'p' or 'c'
 mod='c';
 it0=2;
