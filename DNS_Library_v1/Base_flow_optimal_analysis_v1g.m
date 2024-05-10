@@ -42,9 +42,12 @@ global xx_yx yy_yx yy_yz zz_yz xx_xz zz_xz
 
 field_path='Data/Re1500_n61_alpha_ens/';%field_path='';
 
-
-igpu = 1;
-gpuDevice(1)
+%%% GPU ---------------------------------
+igpu=0; % 1 gpu on, 0 gpu off
+if igpu
+gpuDevice(1) % Assign to gpudevice
+end
+%%% -------------------------------------
 
 %%%% Optimization parameters 
 kLyap=1:3; % disturbance k_x range
