@@ -7,7 +7,7 @@ Additional diagnostic scripts that perform the optimal and modal stability analy
 
 An initialization script 'NL3D_Couette_gpu_init_ensemble.m' is provided, which advances multiple copies of a single initial 
 state for a short time interval with a stochastic forcing term and stores the resulting states. This may be utilized to 
-perform transition experiments from a laminar base flow, using the script 'NL3D_Couette_gpu_init_transition.m'. 
+perform transition experiments from a laminar base flow, using the script 'NL3D_Couette_gpu_init_transition_ensemble.m'. 
 
 The main script 'NL3D_Couette_gpu_ensemble.m' continues simulation of these states for a specified number of ensemble members. 
 Stochastic forcing can also be enabled in this script. 
