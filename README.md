@@ -12,8 +12,8 @@ to perform transition experiments from a laminar base flow.
 The main script 'NL3D_Couette_gpu_ensemble.m' continues simulation of these states for a specified number of ensemble members. 
 Stochastic forcing can also be enabled in this script. 
 
-To construct a Noise Structure for the appropriate problem resolution we utilize the script 'Functions_stochastic/ NoiseStructure2_cheb.m'.
-
+To construct a Noise Structure for the appropriate problem resolution we utilize the function 'Functions_stochastic/ NoiseStructure2_cheb.m'.
+The last input parameter of this function exports the structure to a save file ( 1 == save , 0 == off) 
 
 The DNS settings are identical to the single flow case (refer to # dns-matlab-gpu). 
 
