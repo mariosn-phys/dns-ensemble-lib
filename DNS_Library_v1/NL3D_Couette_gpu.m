@@ -50,7 +50,7 @@ global ICvkron2 ICvDvkron2 ICgkron2 ICggkron2
 
 global S_mf S_mp Sol_m b1 b2
 % global kLyap NLyap kkmm llmm DYkronm
-global a b
+global a b Nksolv Nmsolv ksolv msolv
 
 %Function paths or add main folder ('../') and subfolders to path
 addpath('../Functions/')
